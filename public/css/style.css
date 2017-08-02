@@ -1,0 +1,35 @@
+body {
+    margin: 0px;
+    margin-bottom: -20px;
+    color: blue;
+    font: 20 px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#background {
+    background-attachment: fixed;
+    position: absolute;
+    background-size: cover;
+    z-index: 1;
+}
+
+#NavBar {
+    position: fixed;
+    top: 0px;
+    height: 5%;
+    width: 100%;
+    background-color: darkslategray;
+    border: red solid 5px;
+    z-index: 59
+}
+
+#socialsites {
+    position: fixed;
+    top: -20px;
+    left: -50px;
+    z-index: 999;
+}
+
+#socialsites li {
+    display: inline-block;
+}
