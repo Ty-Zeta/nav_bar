@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     color: white;
-    font: 10 px;
+    font: 5 px;
     font-family: open sans-serif
 }
 
@@ -14,7 +14,7 @@ body {
 
 #NavBar {
     position: fixed;
-    top: 0px;
+    top: 0%;
     left: 5%;
     right: 5%;
     height: 40px;
@@ -32,6 +32,72 @@ body {
 
 #socialsites li {
     display: inline-block;
+}
+
+#ddm {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    background-color: #333;
+    z-index: 995;
+    text-align: right;
+    text-decoration: none;
+}
+
+#info {
+    margin-right: 5;
+    width: 50%;
+    float: right;
+    text-decoration: none;
+}
+
+#info li {
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.shop {
+    position: absolute;
+    display: inline-block;
+}
+
+.shop-content {
+    display: none;
+    position: absolute;
+    background-color: darkslategrey;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 900;
+    text-align: left;
+}
+
+.shop-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.shop-content a:hover {
+    background-color: #333;
+}
+
+.shop:hover .shop-content {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 #footer {
@@ -52,5 +118,4 @@ body {
 
 #mmlink li {
     display: inline-block;
-    bottom: 500px;
 }
