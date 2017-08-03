@@ -1,35 +1,56 @@
 body {
     margin: 0px;
-    margin-bottom: -20px;
-    color: blue;
-    font: 20 px;
-    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font: 10 px;
+    font-family: open sans-serif
 }
 
 #background {
-    background-attachment: fixed;
-    position: absolute;
-    background-size: cover;
+    position: center center;
+    repeat: no-repeat;
+    background-attachment: relative;
     z-index: 1;
 }
 
 #NavBar {
     position: fixed;
     top: 0px;
-    height: 5%;
-    width: 100%;
+    left: 5%;
+    right: 5%;
+    height: 40px;
+    width: 90%;
     background-color: darkslategray;
-    border: red solid 5px;
-    z-index: 59
+    z-index: 998;
 }
 
 #socialsites {
     position: fixed;
-    top: -20px;
-    left: -50px;
+    top: -8px;
+    margin-left: -20px;
     z-index: 999;
 }
 
 #socialsites li {
     display: inline-block;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 40px;
+    width: 90%;
+    background-color: darkslategray;
+    z-index: 996;
+}
+
+#mmlink {
+    margin-top: 6;
+    z-index: 997;
+}
+
+#mmlink li {
+    display: inline-block;
+    bottom: 500px;
 }
