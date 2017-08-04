@@ -1,5 +1,4 @@
 GEM
-  remote: https://rubygems.org/
   remote: http://rubygems.org/
   specs:
     mustermann (1.0.0)
