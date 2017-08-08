@@ -1,0 +1,147 @@
+body {
+    margin: 0px;
+    font: 5 px;
+    font-family: open sans-serif;
+}
+
+#background {
+    background-image: url("../img/pic.png");
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+#NavBar {
+    position: fixed;
+    top: 0%;
+    left: 5%;
+    right: 5%;
+    height: 40px;
+    width: 90%;
+    background-color: #1c1c1c;
+    z-index: 998;
+}
+
+#socialsites {
+    position: fixed;
+    top: -8px;
+    margin-left: -20px;
+    z-index: 999;
+}
+
+#socialsites li {
+    display: inline-block;
+}
+
+#ddm {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    background-color: #333;
+    z-index: 995;
+    text-align: right;
+    text-decoration: none;
+}
+
+#info {
+    margin-right: 5;
+    width: 50%;
+    float: right;
+    text-decoration: none;
+    padding-right: 0;
+}
+
+#info a:hover {
+    color: green;
+}
+
+#info li {
+    display: inline-block;
+    padding-top: 0px;
+}
+
+#gl {
+    padding-right: 5px;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.shop {
+    padding-right: 5px;
+    display: inline-block;
+}
+
+.shop-content {
+    display: none;
+    position: absolute;
+    background-color: darkslategrey;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 900;
+    text-align: left;
+}
+
+.shop-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.shop-content a:hover {
+    background-color: #333;
+}
+
+.shop:hover .shop-content {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#coin_changer {
+    text-align: center;
+    background-color: #f1f1f1;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 100%;
+    position: relative;
+    color: black;
+    z-index: 500;
+    opacity: 50%;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 40px;
+    width: 90%;
+    background-color: #1c1c1c;
+    z-index: 996;
+    color: white;
+}
+
+#mmlink {
+    margin-top: 6;
+    z-index: 997;
+}
+
+#mmlink li {
+    display: inline-block;
+}

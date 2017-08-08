@@ -8,15 +8,6 @@ def coin_changer(cents_given_to_me)
       coins_given_to_customer[individual_coins] += 1
     end
   end
-  coins_given_to_customer.to_s
-end
 
-# def hash_converter(coins_given_to_customer)
-# 	change = " "
-# 	coins_given_to_customer.length do |key, value|
-# 		if value > 0
-# 		  change << " " + value.to_s + " " + key.to_s + "s"
-# 	  end
-# 	end
-# 	change.to_s
-# end
+coins_given_to_customer.collect { |key, value| "#{value} #{key}, " }.join
+end
