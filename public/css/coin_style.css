@@ -11,7 +11,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
+    z-index: -1;
 }
 
 #NavBar {
@@ -42,7 +42,7 @@ body {
     left: 5%;
     right: 5%;
     width: 90%;
-    background-color: #333;
+    background-color: rgba(20, 20, 20, 100);
     z-index: 995;
     text-align: right;
     text-decoration: none;
@@ -70,7 +70,7 @@ body {
 }
 
 .dropbtn {
-    background-color: #333;
+    background-color: rgba(20, 20, 20, 100);
     color: white;
     font-size: 16px;
     border: none;
@@ -119,10 +119,10 @@ a {
     right: 5%;
     width: 90%;
     height: 100%;
-    position: relative;
+    top: 13%;
+    position: absolute;
     color: black;
     z-index: 500;
-    opacity: 50%;
 }
 
 #footer {

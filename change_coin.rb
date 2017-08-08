@@ -9,5 +9,5 @@ def coin_changer(cents_given_to_me)
     end
   end
 
-coins_given_to_customer.collect { |key, value| "#{value} #{key}, " }.join
+coins_given_to_customer.collect { |key, value| "#{value} #{key}" }.join
 end

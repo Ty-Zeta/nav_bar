@@ -71,7 +71,7 @@ body {
 }
 
 .dropbtn {
-    background-color: #333;
+    background-color: rgba(20, 20, 20, 100);
     color: white;
     font-size: 16px;
     border: none;
