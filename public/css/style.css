@@ -1,8 +1,7 @@
 body {
     margin: 0px;
-    color: white;
     font: 5 px;
-    font-family: open sans-serif
+    font-family: open sans-serif;
 }
 
 #background {
@@ -12,7 +11,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
 }
 
 #NavBar {
@@ -20,7 +18,7 @@ body {
     top: 0%;
     left: 5%;
     right: 5%;
-    height: 40px;
+    height: 6%;
     width: 90%;
     background-color: #1c1c1c;
     z-index: 998;
@@ -30,7 +28,6 @@ body {
     position: fixed;
     top: -8px;
     margin-left: -20px;
-    z-index: 999;
 }
 
 #socialsites li {
@@ -43,6 +40,7 @@ body {
     left: 5%;
     right: 5%;
     width: 90%;
+    height: 8%;
     background-color: rgba(20, 20, 20, 100);
     z-index: 995;
     text-align: right;

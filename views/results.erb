@@ -1,1 +1,57 @@
-The amount of change you have is <%= coins_given_to_customer %>
+<! doctype HTML5>
+
+<html lang = "en">
+    <head>
+        <meta charset = "utf - 8">
+
+        <title> Coin Page </title>
+        <meta name = "description" content = "Nav Bar Homework">
+        <meta name = "author" content = "Site Point">
+
+        <link rel = "stylesheet" href = "css/results_style.css">
+
+    </head>
+
+    <body>
+
+    <div id = "background">  
+    </div>
+
+    <div id = "NavBar">
+        <ul id = "socialsites">
+            <li> <a href = "http://www.facebook.com/ty.cook.14"> <img src = "./img/fb.png" alt = "facebook logo"> </a> </li>
+            <li> <a href = "http://www.twitter.com/Ty_Zeta"> <img src = "./img/tw.png" alt = "twitter logo"> </a> </li>
+            <li> <a href = "http://www.youtube.com"> <img src = "./img/yt.png" alt = "youtube logo"> </a> </li>
+        </ul>
+    </div>
+
+    <div id = "ddm">
+        <ul id = "info">
+            <li class = "shop">
+                <a href="javascript:void(0)"
+                class = "dropbtn"> SHOP </a>
+                <div class = "shop-content">
+                    <a href = "http://www.amazon.com">Amazon</a>
+                    <a href = "http://www.ebay.com">EBay</a>
+                    <a href = "http://www.netflix.com">Netflix</a> 
+                </div>
+            </li>
+            <li id = "gl"> <a href = "http://www.google.com"> GOOGLE </a> </li>
+            <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
+        </ul>
+    </div>
+
+    <div id = "answer">
+        The total change from <%= cents_given_to_me %> cents is <%= coins_given_to_customer %>
+    </div>
+
+    <div id = "footer">
+        <ul id = "mmlink">
+            <li> <a href = "http://www.minedminds.org" target = "_blank"> <img src = "./img/mm.png" alt = "minedminds logo"> </a> </li>
+        © Mined Minds
+        </ul>
+    </div>
+
+    </body>
+
+</html>

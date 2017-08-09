@@ -106,7 +106,7 @@ body {
     display: block;
 }
 
-#coin_changer {
+#answer {
     text-align: center;
     background-color: #f1f1f1;
     left: 5%;
@@ -118,65 +118,6 @@ body {
     color: black;
     z-index: 500;
     margin-top: 1.5%;
-}
-
-
-/* Tooltip container */
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-    text-align: center;
-    background-color: #f1f1f1;
-    z-index: 800;
-    margin-top: 5%;
-    /* If you want dots under the hoverable text */
-}
-
-
-/* Tooltip text */
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    margin-left: -60px;
-    top: 100%;
-    /* Fade in tooltip */
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-
-/* Tooltip arrow */
-
-
-/* .tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: -105%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-} */
-
-
-/* Show the tooltip text when you mouse over the tooltip container */
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
 }
 
 a {
