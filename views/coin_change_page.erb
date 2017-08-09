@@ -48,6 +48,11 @@
                 <input type = 'number' min = '1' max = '1000' name = 'cents_given_to_me'>
                 <input type = "submit" value = "Calculate Change">
             </form>
+            <center>
+            <div class = "tooltip" > Roll over for time and date
+                <span class = "tooltiptext"> <p id = "demo"> </p> </span>
+            </div>
+            </center>
         
         </div>
 
@@ -57,6 +62,10 @@
             © Mined Minds
             </ul>
         </div>
+        
+        <script>
+            document.getElementById("demo").innerHTML = Date();
+        </script>
 
     </body>
 

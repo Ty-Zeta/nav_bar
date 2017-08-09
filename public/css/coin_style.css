@@ -11,7 +11,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: -1;
 }
 
 #NavBar {
@@ -29,7 +28,6 @@ body {
     position: fixed;
     top: -8px;
     margin-left: -20px;
-    z-index: 999;
 }
 
 #socialsites li {
@@ -107,11 +105,6 @@ body {
     display: block;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
 #coin_changer {
     text-align: center;
     background-color: #f1f1f1;
@@ -125,6 +118,70 @@ a {
     z-index: 500;
 }
 
+
+/* Tooltip container */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    text-align: center;
+    background-color: #f1f1f1;
+    z-index: 800;
+    margin-top: 5%;
+    /* If you want dots under the hoverable text */
+}
+
+
+/* Tooltip text */
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    margin-left: -60px;
+    top: 100%;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+
+/* Tooltip arrow */
+
+
+/* .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: -105%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+} */
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
 #footer {
     position: fixed;
     bottom: 0;
@@ -134,12 +191,11 @@ a {
     width: 90%;
     background-color: #1c1c1c;
     z-index: 996;
-    color: white;
 }
 
 #mmlink {
     margin-top: 6;
-    z-index: 997;
+    color: white;
 }
 
 #mmlink li {
