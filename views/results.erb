@@ -8,18 +8,26 @@
         <meta name = "description" content = "Nav Bar Homework">
         <meta name = "author" content = "Site Point">
         <link rel = "stylesheet" href = "css/results_style.css">
-    </head>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-    
-    <script>
-        $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
             $("button").click(function(){
-                $("#answer").fadeOut(3000);
+            $("#answer").fadeOut(3000);
+                });
             });
-        });
-    </script>
+        </script>
+
+        <script type = "text/javascript">
+            function replaceImage(e) {
+                var image = document.getElementById('image');
+                image.src = '../img/pr.jpg';
+            return false;
+            }
+        </script>
+    
+    </head>
 
     <body>
 
@@ -37,7 +45,7 @@
     <div id = "ddm">
         <ul id = "info">
             <li class = "shop">
-                <a href="javascript:void(0)"
+                <a href = "javascript:void(0)"
                 class = "dropbtn"> SHOP </a>
                 <div class = "shop-content">
                     <a href = "http://www.amazon.com">Amazon</a>
@@ -52,12 +60,12 @@
 
     <div id = "answer">
         The total change from <%= cents_given_to_me %> cents is <%= coins_given_to_customer %>
-        <button> Click this for a fade </button><br><br>
+        <button> Click to fade </button><br><br>
     </div>
 
     <div id = "pickle">
-    <a href = '#' onClick = 'replaceImage();' title = 'Reload image'> Click for Magic </a>
-                            <img id = "image" src = '../img/pic.png'/>
+        <a href = '#' onClick = 'replaceImage();' title = 'Reload image'> Click for Magic </a>
+            <img id = "image" src = '../img/pic.png'/>
     </div>
         
     <div id = "footer">
@@ -70,13 +78,3 @@
     </body>
 
 </html>
-
-   <script type = "text/javascript">
-        $(function(){
-            $("answer").hover(function(){
-                $("answer").css({opacity: 1.0});
-        },function(){
-        $("answer").css({opacity: 0.0});
-                });
-            });
-    </script>
