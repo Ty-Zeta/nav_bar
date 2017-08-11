@@ -120,11 +120,13 @@ a {
     width: 90%;
     background-color: #1c1c1c;
     z-index: 996;
+    color: white;
 }
 
 #mmlink {
     margin-top: 6;
     z-index: 997;
+    color: white;
 }
 
 #mmlink li {

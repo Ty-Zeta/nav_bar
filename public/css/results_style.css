@@ -4,7 +4,8 @@ body {
     font-family: open sans-serif;
 }
 
-#background {
+
+/* #background {
     background-image: url("../img/pic.png");
     min-height: 100%;
     background-attachment: fixed;
@@ -12,6 +13,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+*/
 
 #NavBar {
     position: fixed;
@@ -118,6 +120,21 @@ body {
     color: black;
     z-index: 500;
     margin-top: 1.5%;
+    /* opacity: 0.6; */
+}
+
+#pickle {
+    margin: 0px;
+    background-size: 100% 100%;
+}
+
+#pickle a {
+    color: black;
+    padding-left: 20px;
+    position: relative;
+    top: 125px;
+    left: 40%;
+    z-index: 999999;
 }
 
 a {

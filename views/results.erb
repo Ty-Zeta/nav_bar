@@ -7,14 +7,23 @@
         <title> Coin Page </title>
         <meta name = "description" content = "Nav Bar Homework">
         <meta name = "author" content = "Site Point">
-
         <link rel = "stylesheet" href = "css/results_style.css">
-
     </head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#answer").fadeOut(3000);
+            });
+        });
+    </script>
 
     <body>
 
-    <div id = "background">  
+    <div id = "background">
     </div>
 
     <div id = "NavBar">
@@ -43,15 +52,31 @@
 
     <div id = "answer">
         The total change from <%= cents_given_to_me %> cents is <%= coins_given_to_customer %>
+        <button> Click this for a fade </button><br><br>
     </div>
 
+    <div id = "pickle">
+    <a href = '#' onClick = 'replaceImage();' title = 'Reload image'> Click for Magic </a>
+                            <img id = "image" src = '../img/pic.png'/>
+    </div>
+        
     <div id = "footer">
         <ul id = "mmlink">
             <li> <a href = "http://www.minedminds.org" target = "_blank"> <img src = "./img/mm.png" alt = "minedminds logo"> </a> </li>
-        © Mined Minds
+                © Mined Minds
         </ul>
     </div>
 
     </body>
 
 </html>
+
+   <script type = "text/javascript">
+        $(function(){
+            $("answer").hover(function(){
+                $("answer").css({opacity: 1.0});
+        },function(){
+        $("answer").css({opacity: 0.0});
+                });
+            });
+    </script>
