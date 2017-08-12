@@ -1,8 +1,17 @@
 require 'sinatra'
 require_relative "change_coin.rb"
+require_relative "rando_names.rb"
 
 get '/' do
 erb :index
+end
+
+get '/user_names' do
+    erb :names
+end
+
+post '/user_names' do
+  
 end
 
 get '/user_change' do
