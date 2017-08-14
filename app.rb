@@ -11,21 +11,20 @@ get '/user_names' do
 end
 
 post '/user_names' do
-  array_names = params[:array_names]
-  name = params[:name]
+#   array_names = params[:array_names]
+  name = params.values
   pairs = params[:pairs]
-  print name
-  redirect '/pairs_page?array_names=' + array_names + '&pairs=' + pairs + '&name=' + name
+  pairs = pairing(name)
+  p pairs
+  redirect '/pairs_page?pairs=' + pairs + '&name=' + name
   
 end
 
 get '/pairs' do
-    array_names = params[:array_names]
+    # array_names = params[:array_names]
     name = params[:name]
     pairs = params[:pairs]
-    pairs = pairing(array_names)
-    p array_names
-    erb :pairs_page, :locals => {:array_names => array_names, :pairs => pairs, :name => name}
+    erb :pairs_page, :locals => {:pairs => pairs, :name => name}
    
 end
 

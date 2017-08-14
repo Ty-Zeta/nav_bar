@@ -21,18 +21,16 @@
 
         for (i = 0; i < number_of_people; i++) {
             var input = document.createElement("input");
+            // variable input is the boxes themselves
+
             input.text = "text";
+            // .text tells the box what to expect to be written in
+
             input.name = "name" + i;
+            // gives a title to the value and the i is the counter for each ascending box
 
-            // this gives a title to each of the text boxes and the + i is a counter
-            // so that it will pass all the text in the boxes and not just the last one
-            
             list_names.appendChild(input);
-            // this puts the div of text boxes on the screen
-
-            var array_names = [];
-            array_names.push(name);
-
+            // this puts the div of text boxes on the screen after the number button has been pressed
         }
     }
     </script>
