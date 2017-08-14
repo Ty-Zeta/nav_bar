@@ -8,7 +8,7 @@ def pairing(name)
       last_one = last_one[0]
       pairs[0] << last_one
     end
-    pairs
+    pairs.map {|i| + i.to_s}.join"<br>"
 end
 
 # double check variable names here with names in functions, 
