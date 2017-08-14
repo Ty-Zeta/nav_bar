@@ -10,33 +10,6 @@
 
     <link rel = "stylesheet" href = "css/style.css">
 
-     <script>
-    function generate() {
-
-        var number_of_people = parseInt(document.getElementById("number_of_names").value);
-        // this takes the number from the text box and passes to a variable to give to the next step
-
-        var number_of_names = document.getElementById("number_of_names");
-        // this is the number of boxes that appear
-
-        for (i = 0; i < number_of_people; i++) {
-            var input = document.createElement("input");
-            input.text = "text";
-            input.name = "name" + i;
-
-            // this gives a title to each of the text boxes and the + i is a counter
-            // so that it will pass all the text in the boxes and not just the last one
-            
-            list_names.appendChild(input);
-            // this puts the div of text boxes on the screen
-
-            var array_names = [];
-            array_names.push(name);
-
-        }
-    }
-    </script>
-
 </head>
 
 <body>
@@ -67,15 +40,8 @@
         </ul>
     </div>
 
-    <div id = "rando_names">
-    <form method = "post" action = "/user_names">
-        Enter how many people in your group
-        <input type = "text" id = "number_of_names" />
-        <input type = "button" value = "Enter number" onclick = "generate()" />
-        <div id = "list_names"> </div>
-        <input type = "submit" value = "Ready to be paired up?">
-    </form>
-    </div>
+    <div id = "paired_names">
+        
 
     <div id = "footer">
         <ul id = "mmlink">
