@@ -8,9 +8,5 @@ def pairing(name)
       last_one = last_one[0]
       pairs[0] << last_one
     end
-    pairs.map {|i| + i.to_s}.join"<br>"
+    pairs.map! {|v, e, f| "#{v},  " "#{e}, " "#{f} "}.join" and "
 end
-
-# double check variable names here with names in functions, 
-#see if you can get those names into an array,
-# and then find a code to take them out of an array
