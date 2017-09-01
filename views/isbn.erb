@@ -10,8 +10,19 @@
 
     <link rel = "stylesheet" href = "css/style.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        function isbn_generate() {
+            var isbn_input = document.createElement("input");
+            isbn_input.setAttribute("type", "text");
+            isbn_input.placeholder = "Enter number"
+            document.body.appendChild(isbn_input);
+            isbn_textbox_div.appendChild(isbn_input);
+        }
+    </script>
+
 
 </head>
 
@@ -33,14 +44,29 @@
                 <a href="javascript:void(0)"
                 class = "dropbtn"> LINKS </a>
                 <div class = "links-content">
-                    <a href = "http://www.amazon.com">Amazon</a>
+                    <a href = "http://www.amazon.com"> Amazon </a>
                     <a href = /isbn> ISBN </a>
-                    <a href = /pizza_delivery>Pizza</a> 
+                    <a href = /pizza_delivery> Pizza </a> 
                 </div>
             </li>
             <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>
             <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
         </ul>
+    </div>
+
+    <div id = "isbn">
+        <form method = "post" action = "/isbn">
+                
+            <p> Would you like to know if a number is an International Standard Book Number (ISBN)? </p>
+            <p> Just choose if you have a ten digit number or a thirteen digit number. </p>
+            <p> <input  type = "radio" name = 'isbn_radio' value = "ten"> Ten digits </p>
+            <p> <input  type = "radio" name = 'isbn_radio' value = "thirteen"> Thirteen digits </p>
+            <p> <input type = 'button' value = "Click here to type" onclick = "isbn_generate()" /> </p>
+
+            <div id = "isbn_textbox_div"> </div>
+            <input type = "submit" value = "Is it a real number?">
+
+        </form>
     </div>
 
     <div id = "footer">

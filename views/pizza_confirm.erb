@@ -1,0 +1,105 @@
+    <! doctype HTML5>
+
+<html lang = "en">
+<head>
+    <meta charset = "utf - 8">
+
+    <title> Nav Bar Homework </title>
+    <meta name = "description" content = "Nav Bar Homework">
+    <meta name = "author" content = "Site Point">
+
+    <link rel = "stylesheet" href = "css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div id = "background">  
+    </div>
+
+    <div id = "NavBar">
+        <ul id = "socialsites">
+            <li> <a href = "http://www.facebook.com/ty.cook.14"> <img src = "./img/fb.png" alt = "facebook logo"> </a> </li>
+            <li> <a href = "http://www.twitter.com/Ty_Zeta"> <img src = "./img/tw.png" alt = "twitter logo"> </a> </li>
+            <li> <a href = "http://www.youtube.com"> <img src = "./img/yt.png" alt = "youtube logo"> </a> </li>
+        </ul>
+    </div>
+
+    <div id = "ddm">
+        <ul id = "info">
+            <li class = "links">
+                <a href="javascript:void(0)"
+                class = "dropbtn"> LINKS </a>
+                <div class = "links-content">
+                    <a href = "http://www.amazon.com">Amazon</a>
+                    <a href = /isbn> ISBN </a>
+                    <a href = /pizza_delivery>Pizza</a> 
+                </div>
+            </li>
+            <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>
+            <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
+        </ul>
+    </div>
+
+    <div id = "pizza_confirm_div">
+
+        <form method = "post" action = "/pizza_confirm">
+            
+            <% total = 0 %>
+
+            <% size.each do |size_value| %>
+                <p> <%= size_value %>
+                <input type = "radio" name = "size_radio[<%= size_value %>]" value = "<%= size_value %>" checked> Yes
+                <input type = "radio" name = "size_radio[<%= size_value %>]" value = "no"> No </p>
+                
+                    <% if size_value == "small" %>
+                        <% total += 5 %>
+                    <% elsif size_value == "medium" %>
+                        <% total += 7 %>
+                    <% else size_value == "large" %>
+                        <% total += 9 %>
+                    <% end %>
+            <% end %>
+
+            <% sauce.each do |sauce_value| %>
+                <p> <%= sauce_value %>
+                <img src = "./img/<%= sauce_value %>.png">
+                <input type = "radio" name = "sauce_radio[<%= sauce_value %>]" value = "<%= sauce_value %>" checked> Yes
+                <input type = "radio" name = "sauce_radio[<%= sauce_value %>]" value = "no"> No </p>
+                    <% total += 1 %>
+            <% end %>
+            
+            <% meat.each do |meat_value| %>
+                <p> <%= meat_value %>
+                <img src = "./img/<%= meat_value %>.png">
+                <input type = "radio" name = "meat_radio[<%= meat_value %>]" value = "<%= meat_value %>" checked> Yes
+                <input type = "radio" name = "meat_radio[<%= meat_value %>]" value = "no"> No </p>
+                    <% total += 1 %>
+            <% end %>
+
+            <% veg.each do |veg_value| %>
+                <p> <%= veg_value %>
+                <img src = "./img/<%= veg_value %>.png">
+                <input type = "radio" name = "veg_radio[<%= veg_value %>]" value = "<%= veg_value %>"checked> Yes
+                <input type = "radio" name = "veg_radio[<%= veg_value %>]" value = "no"> No </p>
+                    <% total += 1 %>
+            <% end %>
+
+        Your total is is $<%= total %>
+            <input type = "submit" value = "Continue to Final Order">
+            <input type = "hidden" value = "<%= total %>" name = "total">
+        </form>
+    </div>
+
+    <div id = "footer">
+        <ul id = "mmlink">
+            <li> <a href = "http://www.minedminds.org" target = "_blank"> <img src = "./img/mm.png" alt = "minedminds logo"> </a> </li>
+        © Mined Minds
+        </ul>
+    </div>
+
+</body>
+
+</html>

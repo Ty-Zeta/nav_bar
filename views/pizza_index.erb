@@ -1,0 +1,90 @@
+<! doctype HTML5>
+
+<html lang = "en">
+<head>
+    <meta charset = "utf - 8">
+
+    <title> Nav Bar Homework </title>
+    <meta name = "description" content = "Nav Bar Homework">
+    <meta name = "author" content = "Site Point">
+
+    <link rel = "stylesheet" href = "css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div id = "background">  
+    </div>
+
+    <div id = "NavBar">
+        <ul id = "socialsites">
+            <li> <a href = "http://www.facebook.com/ty.cook.14"> <img src = "./img/fb.png" alt = "facebook logo"> </a> </li>
+            <li> <a href = "http://www.twitter.com/Ty_Zeta"> <img src = "./img/tw.png" alt = "twitter logo"> </a> </li>
+            <li> <a href = "http://www.youtube.com"> <img src = "./img/yt.png" alt = "youtube logo"> </a> </li>
+        </ul>
+    </div>
+
+    <div id = "ddm">
+        <ul id = "info">
+            <li class = "links">
+                <a href="javascript:void(0)"
+                class = "dropbtn"> LINKS </a>
+                <div class = "links-content">
+                    <a href = "http://www.amazon.com">Amazon</a>
+                    <a href = /isbn> ISBN </a>
+                    <a href = /pizza_delivery>Pizza</a> 
+                </div>
+            </li>
+            <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>
+            <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
+        </ul>
+    </div>
+
+    <div id = "pizza_index_div">
+        <h1>Please pick your sandwich parts:</h1>
+        <center>
+
+        <form method = "post" action = "/pizza_choosing">
+
+            <h3> Please select your size: </h3>
+            <p> <input  type = "radio" name = 'size[]' value = "small"> $ 5 - Small </p> 
+            <p> <input  type = "radio" name = 'size[]' value = "medium"> $7 - Medium </p>
+            <p> <input  type = "radio" name = 'size[]' value = "large"> $9 - large </p>
+
+            <h3> Please select your sauce: </h3>
+            <p> <input  type = "radio" name = 'sauce[]' value = "bbq">$1 - BBQ <img src = "./img/bbq.png"> </p> 
+            <p> <input  type = "radio" name = 'sauce[]' value = "buffalo">$1 - Buffalo <img src = "./img/buffalo.png"> </p>
+            <p> <input  type = "radio" name = 'sauce[]' value = "marinara">$1 - Marinara <img src = "./img/marinara.png"> </p>
+
+            <h3> Please select your meats:</h3>
+                
+            <p> <input  type = "checkbox" name = 'meat[]' value = "bacon">$1 - Bacon <img src = "./img/bacon.png"> </p>
+            <p> <input  type = "checkbox" name = 'meat[]' value = "pepperoni">$1 - Pepperoni <img src = "./img/pepperoni.png"> </p>
+            <p> <input  type = "checkbox" name = 'meat[]' value = "ham">$1 - Ham <img src = "./img/ham.png"> </p>
+
+            <h3> Please select your Veggies:</h3>
+
+            <p> <input  type = "checkbox" name = 'veg[]' value = "spinach">$1 -  Spinach <img src = "./img/spinach.png"> </p>
+            <p> <input  type = "checkbox" name = 'veg[]' value = "jalapeno">$1 - Jalapeno <img src = "./img/jalapeno.png"> </p>
+            <p> <input  type = "checkbox" name = 'veg[]' value = "mushroom">$1 - Mushroom <img src = "./img/mushroom.png"> </p>
+                
+            </center>
+
+            <center> <input type = 'submit'> </center>
+
+        </form>
+    </div>
+
+    <div id = "footer">
+        <ul id = "mmlink">
+            <li> <a href = "http://www.minedminds.org" target = "_blank"> <img src = "./img/mm.png" alt = "minedminds logo"> </a> </li>
+        © Mined Minds
+        </ul>
+    </div>
+
+</body>
+
+</html>

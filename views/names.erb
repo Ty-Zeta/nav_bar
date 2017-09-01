@@ -15,11 +15,15 @@
 
         var number_of_people = parseInt(document.getElementById("number_of_names").value);
         // this takes the number from the text box and passes to a variable to give to the next step
+        // document = webpage
+        // getelementbyid =  search for the tag < > number_of_names
 
         var number_of_names = document.getElementById("number_of_names");
         // this is the number of boxes that appear
 
-        for (i = 0; i < number_of_people; i++) {
+        for (var i = 0; i < number_of_people; i++) {
+            // i++ is the same as i = i + 1
+
             var input = document.createElement("input");
             // variable input is the boxes themselves
 
@@ -29,6 +33,12 @@
             input.name = "name" + i;
             // gives a title to the value and the i is the counter for each ascending box
 
+            input.required = true;
+            // something has to be inside the boxes before submit button works
+
+            input.placeholder = "Enter name"
+            // places shadow text inside text boxes that goes away as soon as user types
+            
             list_names.appendChild(input);
             // this puts the div of text boxes on the screen after the number button has been pressed
         }
@@ -51,13 +61,13 @@
 
     <div id = "ddm">
         <ul id = "info">
-            <li class = "shop">
+            <li class = "links">
                 <a href="javascript:void(0)"
-                class = "dropbtn"> SHOP </a>
-                <div class = "shop-content">
+                class = "dropbtn"> LINKS </a>
+                <div class = "links-content">
                     <a href = "http://www.amazon.com">Amazon</a>
-                    <a href = "http://www.ebay.com">EBay</a>
-                    <a href = "http://www.netflix.com">Netflix</a> 
+                    <a href = /isbn> ISBN </a>
+                    <a href = /pizza_delivery>Pizza</a> 
                 </div>
             </li>
             <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>
@@ -66,13 +76,16 @@
     </div>
 
     <div id = "rando_names">
-    <form method = "post" action = "/user_names">
-        Enter how many people in your group
-        <input type = "text" id = "number_of_names" />
-        <input type = "button" value = "Enter number" onclick = "generate()" />
-        <div id = "list_names"> </div>
-        <input type = "submit" value = "Ready to be paired up?">
-    </form>
+        <form method = "post" action = "/user_names">
+            
+            Enter how many people in your group
+            <input type = "text" id = "number_of_names" />
+            <input type = "button" value = "Enter number" onclick = "generate()" />
+            
+            <div id = "list_names"> </div>
+            <input type = "submit" value = "Ready to be paired up?">
+        
+        </form>
     </div>
 
     <div id = "footer">

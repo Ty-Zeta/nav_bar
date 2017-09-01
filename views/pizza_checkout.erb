@@ -41,6 +41,17 @@
             <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>
             <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
         </ul>
+    </div>  
+          
+    <div id "pizza_checkout_div">
+
+        Your total price is <%= total_price %>
+
+        and your pizzas are
+        <% final_pizzas.each do |pizza_value| %>
+          <p> <%= pizza_value %> </p>
+        <% end %>
+    
     </div>
 
     <div id = "footer">

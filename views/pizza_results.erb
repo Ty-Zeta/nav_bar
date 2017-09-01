@@ -41,6 +41,58 @@
             <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>
             <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
         </ul>
+    </div>    
+    
+    <div id = "pizza_results_div">
+
+        <form method = "post" action = "/pizza_results">
+
+        Alright, so we're sending the pizza to <%= take_pizza_here %>
+
+        Your pizza will have
+
+        <% pizza_array = [] %>
+
+        <% size_final.each do |size_value| %>
+            <% size_value = size_value.shift%>
+            <p> <%= size_value %> </p>
+            <% pizza_array << size_value %>
+        <% end %>
+
+        <% sauce_final.each do |sauce_value| %>
+            <% sauce_value = sauce_value.shift%>
+            <p> <%= sauce_value %> </p>
+            <img src = "./img/<%= sauce_value %>.png">
+            <% pizza_array << sauce_value %>
+        <% end %>
+
+        <% meat_final.each do |meat_value, key| %>
+        <% if meat_value == key %>
+                <p> <%= meat_value %> </p>
+                <img src = "./img/<%= meat_value %>.png">
+                <% pizza_array << meat_value %>
+                <% end %>
+        <% end %>
+
+        <% veg_final.each do |veg_value, key| %>
+            <% if veg_value == key %>
+                <p> <%= veg_value %> </p>
+                <img src = "./img/<%= veg_value %>.png">
+                <% pizza_array << veg_value %>
+            <% end %>
+        <% end %>
+
+        The total cost is $ <%= total_final %>
+
+        <%= pizza_array %>
+
+        Would you like to add another pizza or check out?
+            <input type = "radio" name = "add_checkout" value = "yes"> Click here to add a pizza
+            <input type = "radio" name = "add_checkout" value = "no"> Go to checkout
+            <input type = "hidden" name = "pizza_array" value = '<%= pizza_array %>'>
+            <input type = "submit">
+
+        </form>
     </div>
 
     <div id = "footer">
