@@ -13,17 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    // <script>
-    //     function isbn_generate() {
-    //         var isbn_input = document.createElement("input");
-    //         isbn_input.setAttribute("type", "text");
-    //         isbn_input.placeholder = "Enter number"
-    //         document.body.appendChild(isbn_input);
-    //         isbn_textbox_div.appendChild(isbn_input);
-    //     }
-    // </script>
-
-
 </head>
 
 <body>
@@ -55,7 +44,7 @@
     </div>
 
     <div id = "isbn_results">
-        Your number <%= ten_digit_box %> <%= thirteen_digit_box %> is <%= isbn_truth %>
+        Your number <%= user_given_isbn %> is <%= isbn_truth %>
     </div>
 
     <div id = "footer">

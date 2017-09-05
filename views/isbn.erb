@@ -13,17 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    // <script>
-    //     function isbn_generate() {
-    //         var isbn_input = document.createElement("input");
-    //         isbn_input.setAttribute("type", "text");
-    //         isbn_input.placeholder = "Enter number"
-    //         document.body.appendChild(isbn_input);
-    //         isbn_textbox_div.appendChild(isbn_input);
-    //     }
-    // </script>
-
-
 </head>
 
 <body>
@@ -57,32 +46,13 @@
     <div id = "isbn">
         <form method = "post" action = "/isbn">
             <p> Would you like to know if a number is an International Standard Book Number (ISBN)? </p>
-            <p> Just choose if you have a ten digit number or a thirteen digit number. </p>
-            <p> Ten digits </p>
-            <input type = "text" name = "ten_digit_box" maxlength = "10">
-            <p> Thirteen digits </p>
-            <input type = "text" name = "thirteen_digit_box" maxlength = "13">
+            <p> Just type in your ten digit number or thirteen digit number. </p>
+            <input type = "text" name = "user_given_isbn">
 
             <p> <input type = "submit" value = "Is it a real number?"> </p>
 
         </form>
     </div>
-
- <!--   <div id = "isbn">
-        <form method = "post" action = "/isbn">
-                
-            <p> Would you like to know if a number is an International Standard Book Number (ISBN)? </p>
-            <p> Just choose if you have a ten digit number or a thirteen digit number. </p>
-            <p> <input  type = "radio" name = 'isbn_radio' value = "ten"> Ten digits </p>
-            <p> <input  type = "radio" name = 'isbn_radio' value = "thirteen"> Thirteen digits </p>
-            <p> <input type = 'button' value = "Click here to type" onclick = "isbn_generate()" /> </p>
-
-            <div id = "isbn_textbox_div"> </div>
-            <input type = "submit" value = "Is it a real number?">
-
-        </form>
-    </div>
--->
 
     <div id = "footer">
         <ul id = "mmlink">
