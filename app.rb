@@ -119,3 +119,15 @@ end
 get '/isbn' do
     erb :isbn
 end
+
+post '/isbn' do
+    session[:ten_isbn] = params[:ten_digit_box]
+    session[:thirteen_isbn] = params[:thirteen_digit_box]
+    isbn_truth = check_10_sum(:ten_isbn)
+    isbn_truth = check_13_sum(:thirteen_isbn) 
+    redirect '/isbn_results'
+end
+
+get 'isbn_results' do
+    erb :isbn_results, locals: {ten_result: session[:ten_isbn], thirteen_result: session[:thirteen_isbn]}
+end

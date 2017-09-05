@@ -54,35 +54,9 @@
         </ul>
     </div>
 
-    <div id = "isbn">
-        <form method = "post" action = "/isbn">
-            <p> Would you like to know if a number is an International Standard Book Number (ISBN)? </p>
-            <p> Just choose if you have a ten digit number or a thirteen digit number. </p>
-            <p> Ten digits </p>
-            <input type = "text" name = "ten_digit_box" maxlength = "10">
-            <p> Thirteen digits </p>
-            <input type = "text" name = "thirteen_digit_box" maxlength = "13">
-
-            <p> <input type = "submit" value = "Is it a real number?"> </p>
-
-        </form>
+    <div id = "isbn_results">
+        Your number <%= ten_digit_box %> <%= thirteen_digit_box %> is <%= isbn_truth %>
     </div>
-
- <!--   <div id = "isbn">
-        <form method = "post" action = "/isbn">
-                
-            <p> Would you like to know if a number is an International Standard Book Number (ISBN)? </p>
-            <p> Just choose if you have a ten digit number or a thirteen digit number. </p>
-            <p> <input  type = "radio" name = 'isbn_radio' value = "ten"> Ten digits </p>
-            <p> <input  type = "radio" name = 'isbn_radio' value = "thirteen"> Thirteen digits </p>
-            <p> <input type = 'button' value = "Click here to type" onclick = "isbn_generate()" /> </p>
-
-            <div id = "isbn_textbox_div"> </div>
-            <input type = "submit" value = "Is it a real number?">
-
-        </form>
-    </div>
--->
 
     <div id = "footer">
         <ul id = "mmlink">
