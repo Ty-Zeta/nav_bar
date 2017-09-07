@@ -122,8 +122,7 @@ end
 
 post '/isbn' do
     session[:user_given_isbn] = params[:user_given_isbn]
-    session[:isbn_truth] = check_isbn_length(session[:user_given_isbn])
-    
+    session[:isbn_truth] = isbn_function(session[:user_given_isbn])
     redirect '/isbn_results'
 end
 
