@@ -2,6 +2,7 @@ require 'sinatra'
 require_relative "change_coin.rb"
 require_relative "rando_names.rb"
 require_relative "isbn.rb"
+load "./local_env.rb"
 enable :sessions
 
 get '/' do
