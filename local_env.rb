@@ -1,6 +1,0 @@
-ENV['AWS_ACCESS_KEY_ID'] = 'AKIAIN6G7C6Q3XWFBUDA'
-ENV['AWS_SECRET_ACCESS_KEY'] = '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'
-ENV['AWS_REGION']='us-east-2'
-ENV['PATH_STYLE']='true'
-ENV['S3_BUCKET'] = 'mined-minds-ty'
-ENV['S3_File']   = 'new.csv'
