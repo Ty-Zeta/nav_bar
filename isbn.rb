@@ -3,57 +3,6 @@ require 'aws-sdk'
 require 'csv'
 load "./local_env.rb" 
 
-def push_to_bucket()
-    Aws::S3::Client.new(
-    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-    region: ENV['AWS_REGION']
-    )
-    # file = "output_isbn.csv"
-    # bucket = 'isbncsv'
-    bucket = 'mined-minds-ty'
-    file   = 'new.csv'
-    s3 = Aws::S3::Resource.new(region: 'us-east-2')
-    obj = s3.bucket(bucket).object(file)
- 
-    # string data
-    obj.put(body: '"some code here to show something being added to the bucket."+ "\n"')
- 
-    #obj.puts(body:'Hello World!')
-   
-end
-  push_to_bucket()
-
-
-
-# require 'rubygems'
-# require 'aws-sdk'
-# require 'csv'
-#   load "./local_env.rb"
-  
-# def connect_to_s3()
-#     Aws::S3::Client.new(
-#     AWS_ACCESS_KEY_ID: ENV['AWS_ACCESS_KEY_ID'],
-#     AWS_SECRET_ACCESS_KEY: ENV['AWS_SECRET_ACCESS_KEY'],
-#     region: ENV['us-east'], 
-#   )
-#     file = "new.csv"
-#     bucket = 'mined-minds-ty'
-#     s3 = Aws::S3::Resource.new(region: 'us-east-2')
-#     obj = s3.bucket(bucket).object(file)
-
-#     # string data
-#     obj.put(body: '"some code here to show something being added to the bucket."+ "\n"')
-    
-#     # push entire file 
-#     File.open('new.csv', 'rb') do |file|
-#     obj.put(body: file)
-#     end
-# end
-
-
-# connect_to_s3()
-
 def isbn_function(user_given_isbn)
     no_space_or_dash_isbn = user_given_isbn.delete(' -')
 
@@ -170,7 +119,7 @@ def isbn_function(user_given_isbn)
         return_variable = false
     end
     
-    return_variable
+    return_variable.to_s
 end
 
 def isbn_results(function_result)
@@ -181,4 +130,19 @@ def isbn_results(function_result)
     end
 
     result_message
+end
+
+def push_to_bucket(user_given_isbn, result_message)
+    Aws::S3::Client.new(
+    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+    region: ENV['AWS_REGION']
+    )
+
+    bucket = 'mined-minds-ty'
+    file   = 'new.csv'
+    s3 = Aws::S3::Resource.new(region: 'us-east-2')
+    obj = s3.bucket(bucket).object(file)
+ 
+    obj.put(body: user_given_isbn + result_message)
 end

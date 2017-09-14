@@ -125,9 +125,10 @@ post '/isbn' do
     session[:user_given_isbn] = params[:user_given_isbn]
     session[:isbn_truth] = isbn_function(session[:user_given_isbn])
     session[:result_message] = isbn_results(session[:isbn_truth])
+    session[:isbn_bucket_truth] = push_to_bucket(session[:user_given_isbn], session[:isbn_truth])
     redirect '/isbn_results'
 end
 
 get '/isbn_results' do
-    erb :isbn_results, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message]}
+    erb :isbn_results, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth]}
 end
