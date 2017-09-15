@@ -140,7 +140,11 @@ def push_to_bucket(user_given_isbn, result_message)
     )
     file = 'new.csv'
     write_file = File.open(file, "a")
+    # a is "append", which means add on to the end of the file
+    
     write_file << user_given_isbn + ", " + result_message + "\n"
+    # \n means to add a new line, otherwise it would just keep on going
+     
     write_file.close
    
     bucket = 'mined-minds-ty'
@@ -152,4 +156,11 @@ def push_to_bucket(user_given_isbn, result_message)
     File.open(file, 'rb') do |file|
         obj.put(body: file)
     end
+end
+
+def get_file()
+    s3 = Aws::s3::Client.new
+    csv_file_from_bucket = s3.get_object(bucket: 'mined-minds-ty', key: 'new.csv')
+    csv_file_read = file.body.csv_file_read
+
 end
