@@ -144,7 +144,7 @@ def push_to_bucket(user_given_isbn, result_message)
     
     write_file << user_given_isbn + ", " + result_message + "\n"
     # \n means to add a new line, otherwise it would just keep on going
-     
+
     write_file.close
    
     bucket = 'mined-minds-ty'
@@ -159,8 +159,20 @@ def push_to_bucket(user_given_isbn, result_message)
 end
 
 def get_file()
-    s3 = Aws::s3::Client.new
+    Aws::S3::Client.new(
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+        region: ENV['AWS_REGION']
+        )
+    s3 = Aws::S3::Client.new
     csv_file_from_bucket = s3.get_object(bucket: 'mined-minds-ty', key: 'new.csv')
-    csv_file_read = file.body.csv_file_read
-
+    csv_file_read = csv_file_from_bucket.body.read
+    p csv_file_read
+    split_csv = csv_file_read.split
+    list = []
+    split_csv.each do |item|
+        item.gsub(/"/, '')
+        list << item
+    end
+    # p list
 end
