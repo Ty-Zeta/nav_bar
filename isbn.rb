@@ -118,7 +118,7 @@ def isbn_function(user_given_isbn)
     else
         return_variable = false
     end
-    
+
     return_variable.to_s
 end
 
@@ -138,11 +138,18 @@ def push_to_bucket(user_given_isbn, result_message)
     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
     region: ENV['AWS_REGION']
     )
-
+    file = 'new.csv'
+    write_file = File.open(file, "a")
+    write_file << user_given_isbn + ", " + result_message + "\n"
+    write_file.close
+   
     bucket = 'mined-minds-ty'
-    file   = 'new.csv'
+
     s3 = Aws::S3::Resource.new(region: 'us-east-2')
+
     obj = s3.bucket(bucket).object(file)
- 
-    obj.put(body: user_given_isbn + result_message)
+    
+    File.open(file, 'rb') do |file|
+        obj.put(body: file)
+    end
 end
