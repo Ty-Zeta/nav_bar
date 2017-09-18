@@ -139,6 +139,6 @@ post '/isbn_results' do
     redirect '/isbn_bucket_display'
 end
 
-get '/aws_isbn_bucket_displayed' do
-    erb :isbn_bucket_display
+get '/isbn_bucket_display' do
+    erb :isbn_bucket_display, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth], list: session[:bucket_list]}
 end
