@@ -131,7 +131,7 @@ post '/isbn' do
 end
 
 get '/isbn_results' do
-    erb :isbn_results, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth]}
+    erb :isbn_results, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth], get_file: session[:get_file]}
 end
 
 post '/isbn_results' do
@@ -139,5 +139,5 @@ post '/isbn_results' do
 end
 
 get '/isbn_bucket_display' do
-    erb :isbn_bucket_display, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth]}
+    erb :isbn_bucket_display, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth], get_file: session[:get_file]}
 end

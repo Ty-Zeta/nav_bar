@@ -45,7 +45,22 @@
 
     <div id = "isbn_bucket_display">
         <form method = "post" action = "/isbn_bucket_display">
-            <p> The CSV file from the bucket is <%= get_file %> </p>
+            <p> The CSV file from the bucket is </p>
+	<% get_file = get_file.gsub("[", "").gsub(" ", "").gsub("]","") %>
+	<% get_file = get_file.delete(' ')  %>
+	<% get_file = get_file.split(",") %>
+	
+	<% get_file.each_with_index do |single, position| %>
+	<% if position % 3 == 0 %>
+	<br>
+	<% else %>
+	<% end %>
+	<%= "#{single.gsub('"','')}" %>
+	<% end %>
+	</h3>
+
+
+
         </form>
     </div>
 

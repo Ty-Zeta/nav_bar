@@ -174,6 +174,6 @@ def get_file()
         item.gsub(/"/, '')
         list << item
     end
-    list.join(", ")
+    list = list.join(", ")
     list
 end
