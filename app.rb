@@ -127,12 +127,11 @@ post '/isbn' do
     session[:result_message] = isbn_results(session[:isbn_truth])
     session[:isbn_bucket_truth] = push_to_bucket(session[:user_given_isbn], session[:isbn_truth])
     session[:get_file] = get_file()
-    session[:bucket_list] = params[:list]
     redirect '/isbn_results'
 end
 
 get '/isbn_results' do
-    erb :isbn_results, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth], list: session[:bucket_list]}
+    erb :isbn_results, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth]}
 end
 
 post '/isbn_results' do
@@ -140,5 +139,5 @@ post '/isbn_results' do
 end
 
 get '/isbn_bucket_display' do
-    erb :isbn_bucket_display, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth], list: session[:bucket_list]}
+    erb :isbn_bucket_display, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth]}
 end

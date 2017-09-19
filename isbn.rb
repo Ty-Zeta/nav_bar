@@ -175,5 +175,5 @@ def get_file()
         list << item
     end
     list.join(", ")
-    print list
+    list
 end
