@@ -2,7 +2,14 @@ require 'sinatra'
 require_relative "change_coin.rb"
 require_relative "rando_names.rb"
 require_relative "isbn.rb"
+require_relative "ttt_board.rb"
+require_relative "ttt_human.rb"
+require_relative "ttt_random.rb"
+require_relative "ttt_sequential.rb"
+require_relative "ttt_impossible.rb"
+
 load './local_env.rb' if File.exist?('./local_env.rb')
+
 enable :sessions
 
 get '/' do
@@ -140,4 +147,52 @@ end
 
 get '/isbn_bucket_display' do
     erb :isbn_bucket_display, locals: {user_given_isbn: session[:user_given_isbn], isbn_truth: session[:isbn_truth], result_message: session[:result_message], isbn_bucket_truth: session[:isbn_bucket_truth], get_file: session[:get_file]}
+end
+
+get '/tic_tac_toe' do
+    erb :ttt
+end
+
+post '/player_selection' do
+    session[:player1_selected] = params[:player1_selection]
+    session[:player2_selected] = params[:player2_selection]
+    session[:human1] = 'no'
+    session[:human2] = 'no'
+
+    if 
+        session[:player1_selected] == 'human_choice1'
+        session[:player1_selected] = Human.new('X')
+        session[:human1] = 'yes'
+    
+    elsif
+        session[:player1_selected] == 'sequential_choice1'
+        session[:player1_selected] = Sequential.new('X')
+
+    elsif
+        session[:player1_selected] == 'random_choice1'
+        session[:player1_selected] = Random.new('X')
+
+    elsif
+        session[:player1_selected] == 'impossible_choice1'
+        session[:player1_selected] = Impossible.new('X')
+    end
+
+    if 
+        session[:player2_selected] == 'human_choice2'
+        session[:player2_selected] = Human.new('O')
+        session[:human1] = 'yes'
+    
+    elsif
+        session[:player2_selected] == 'sequential_choice2'
+        session[:player2_selected] = Sequential.new('O')
+
+    elsif
+        session[:player2_selected] == 'random_choice2'
+        session[:player2_selected] = Random.new('O')
+
+    elsif
+        session[:player2_selected] == 'impossible_choice2'
+        session[:player2_selected] = Impossible.new('O')
+    end
+
 end

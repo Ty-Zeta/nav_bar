@@ -42,14 +42,45 @@
             <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
         </ul>
     </div>
-    
-    <div id = "pizza_delivery_div">
-        <form method = "post" action = "/pizza_delivery">
 
-            <h3> Would you like delivery?</h3>
-                <input type = "radio" name = "delivery" value = "yes_del"> Yes <br>
-                <input type = "radio" name = "delivery" value = "no_del"> No <br>
-            <input type = "submit">
+    <div id = "ttt">
+        <form method = "post" action = "/player_selection">
+            <p> Welcome to Tic-Tac-Toe! </p>
+            <p> Please select the playstyle for each player </p>
+
+            <div id = "player_selection_div">
+                <center>
+                    <table>
+                        
+                        <tr>
+                            <td> Player 1 = X </td>
+                            <td> Player 2 = O </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <select name = "player1_selection">
+                                    <option value = "human_choice1"> Human </option>
+                                    <option value = "sequential_choice1"> Sequential </option>
+                                    <option value = "random_choice1"> Random </option>
+                                    <option value = "impossible_choice1"> Impossible </option>
+                                </select>
+                            </td>
+
+                            <td>
+                                <select name = "player2_selection">
+                                    <option value = "human_choice2"> Human </option>
+                                    <option value = "sequential_choice2"> Sequential </option>
+                                    <option value = "random_choice2"> Random </option>
+                                    <option value = "impossible_choice2"> Impossible </option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+
+            <p> <input type = "submit" value = "Ready Player One?"> </p>
         </form>
     </div>
 
