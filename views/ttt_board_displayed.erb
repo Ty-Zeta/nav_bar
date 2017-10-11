@@ -49,21 +49,21 @@
         <form action = '/ttt_board_displayed' method = 'post'>
             <table id = "ttt_board_table">
                 <tr>
-                    <td> <input class = "top_left_square" type = 'submit' value = '<%= board.ttt_board[0] %>' name = 'player_choice'> </td>
-                    <td> <input class = "top_middle_square" type = 'submit' value = '<%= board.ttt_board[1] %>' name = 'player_choice'> </td>
-                    <td> <input class = "top_right_square" type = 'submit' value = '<%= board.ttt_board[2] %>' name = 'player_choice'> <td>
+                    <td> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[0] %>' name = 'player_choice'> </td>
+                    <td class = "columns"> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[1] %>' name = 'player_choice'> </td>
+                    <td> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[2] %>' name = 'player_choice'> <td>
                 </tr>
 
                 <tr>
-                    <td> <input class = "left_middle_square" type = 'submit' value = '<%= board.ttt_board[3] %>' name = 'player_choice'> </td>
-                    <td> <input class = "center_square" type = 'submit' value = '<%= board.ttt_board[4] %>' name = 'player_choice'> </td>
-                    <td> <input class = "right_middle_square" type = 'submit' value = '<%= board.ttt_board[5] %>' name = 'player_choice'> </td>
+                    <td class = "rows"> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[3] %>' name = 'player_choice'> </td>
+                    <td class = "columns rows"> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[4] %>' name = 'player_choice'> </td>
+                    <td class = "rows"> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[5] %>' name = 'player_choice'> </td>
                 </tr>
 
                 <tr>
-                    <td> <input class = "bottom_left_square" type = 'submit' value = '<%= board.ttt_board[6] %>' name = 'player_choice'> </td>
-                    <td> <input class = "bottom_middle_square" type = 'submit' value = '<%= board.ttt_board[7] %>' name = 'player_choice'> </td>
-                    <td> <input class = "bottom_right_square" type = 'submit' value = '<%= board.ttt_board[8] %>' name = 'player_choice'> </td>
+                    <td> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[6] %>' name = 'player_choice'> </td>
+                    <td class = "columns"> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[7] %>' name = 'player_choice'> </td>
+                    <td> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[8] %>' name = 'player_choice'> </td>
                 </tr>
             </table>
         </form>
