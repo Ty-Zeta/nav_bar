@@ -292,7 +292,7 @@ body {
     text-align: right;
 }
 
-#ttt_game_board {
+#ttt_game_board_div {
     text-align: center;
     background-color: #f1f1f1;
     left: 5%;

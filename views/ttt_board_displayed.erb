@@ -43,10 +43,10 @@
         </ul>
     </div>
 
-    <div id = "ttt_game_board">
-        <h2 class = "ttt_board_displayed"> It's <%= active_player %>'s turn. Make your move. </h2>
+    <div id = "ttt_game_board_div">
+        <h2 class = "ttt_board_displayed_class"> It's <%= active_player %>'s turn. Make your move. </h2>
 
-        <form action = '/ttt_board_displayed' method = 'post'>
+        <form action = '/ttt_board_displayed_form' method = 'post'>
             <table id = "ttt_board_table">
                 <tr>
                     <td> <input class = "board_square" type = 'submit' value = '<%= board.ttt_board[0] %>' name = 'player_choice'> </td>
