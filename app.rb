@@ -150,7 +150,8 @@ get '/isbn_bucket_display' do
 end
 
 get '/tic_tac_toe' do
-    erb :ttt
+    session[:board] = Board.new
+    erb :ttt, :locals => {board: session[:board]}
 end
 
 post '/player_selection' do
@@ -161,38 +162,49 @@ post '/player_selection' do
 
     if 
         session[:player1_selected] == 'human_choice1'
-        session[:player1_selected] = Human.new('X')
+        session[:player_one] = Human.new('X')
         session[:human1] = 'yes'
-    
     elsif
         session[:player1_selected] == 'sequential_choice1'
-        session[:player1_selected] = Sequential.new('X')
+        session[:player_one] = Sequential.new('X')
 
     elsif
         session[:player1_selected] == 'random_choice1'
-        session[:player1_selected] = Random.new('X')
+        session[:player_one] = Random.new('X')
 
     elsif
         session[:player1_selected] == 'impossible_choice1'
-        session[:player1_selected] = Impossible.new('X')
+        session[:player_one] = Impossible.new('X')
     end
+
+    session[:active_player] = session[:player_one]
 
     if 
         session[:player2_selected] == 'human_choice2'
-        session[:player2_selected] = Human.new('O')
-        session[:human1] = 'yes'
+        session[:player_two] = Human.new('O')
+        session[:human2] = 'yes'
     
     elsif
         session[:player2_selected] == 'sequential_choice2'
-        session[:player2_selected] = Sequential.new('O')
+        session[:player_two] = Sequential.new('O')
 
     elsif
         session[:player2_selected] == 'random_choice2'
-        session[:player2_selected] = Random.new('O')
+        session[:player_two] = Random.new('O')
 
     elsif
         session[:player2_selected] == 'impossible_choice2'
-        session[:player2_selected] = Impossible.new('O')
+        session[:player_two] = Impossible.new('O')
     end
 
+    if
+        session[:human1] == 'yes'
+            redirect '/ttt_board_displayed'
+    else
+        redirect '/make_move'
+    end
+end
+
+get '/ttt_board_displayed' do
+    erb :ttt_board_displayed, locals: {player_one: session[:player_one], player_two: session[:player_two], active_player: session[:active_player].marker, board: session[:board]}
 end

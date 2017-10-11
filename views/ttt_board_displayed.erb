@@ -1,0 +1,81 @@
+<! doctype HTML5>
+
+<html lang = "en">
+<head>
+    <meta charset = "utf - 8">
+
+    <title> Nav Bar Homework </title>
+    <meta name = "description" content = "Nav Bar Homework">
+    <meta name = "author" content = "Site Point">
+
+    <link rel = "stylesheet" href = "css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div id = "background">  
+    </div>
+
+    <div id = "NavBar">
+        <ul id = "socialsites">
+            <li> <a href = "http://www.facebook.com/ty.cook.14"> <img src = "./img/fb.png" alt = "facebook logo"> </a> </li>
+            <li> <a href = "http://www.twitter.com/Ty_Zeta"> <img src = "./img/tw.png" alt = "twitter logo"> </a> </li>
+            <li> <a href = "http://www.youtube.com"> <img src = "./img/yt.png" alt = "youtube logo"> </a> </li>
+        </ul>
+    </div>
+
+    <div id = "ddm">
+        <ul id = "info">
+            <li class = "links">
+                <a href="javascript:void(0)"
+                class = "dropbtn"> LINKS </a>
+                <div class = "links-content">
+                    <a href = /tic_tac_toe> Tic Tac Toe </a>
+                    <a href = /isbn> ISBN </a>
+                    <a href = /pizza_delivery>Pizza</a> 
+                </div>
+            </li>
+            <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>
+            <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
+        </ul>
+    </div>
+
+    <div id = "ttt_game_board">
+        <h2 class = "ttt_board_displayed"> It's <%= active_player %>'s turn. Make your move. </h2>
+
+        <form action = '/ttt_board_displayed' method = 'post'>
+            <table id = "ttt_board_table">
+                <tr>
+                    <td> <input class = "top_left_square" type = 'submit' value = '<%= board.ttt_board[0] %>' name = 'player_choice'> </td>
+                    <td> <input class = "top_middle_square" type = 'submit' value = '<%= board.ttt_board[1] %>' name = 'player_choice'> </td>
+                    <td> <input class = "top_right_square" type = 'submit' value = '<%= board.ttt_board[2] %>' name = 'player_choice'> <td>
+                </tr>
+
+                <tr>
+                    <td> <input class = "left_middle_square" type = 'submit' value = '<%= board.ttt_board[3] %>' name = 'player_choice'> </td>
+                    <td> <input class = "center_square" type = 'submit' value = '<%= board.ttt_board[4] %>' name = 'player_choice'> </td>
+                    <td> <input class = "right_middle_square" type = 'submit' value = '<%= board.ttt_board[5] %>' name = 'player_choice'> </td>
+                </tr>
+
+                <tr>
+                    <td> <input class = "bottom_left_square" type = 'submit' value = '<%= board.ttt_board[6] %>' name = 'player_choice'> </td>
+                    <td> <input class = "bottom_middle_square" type = 'submit' value = '<%= board.ttt_board[7] %>' name = 'player_choice'> </td>
+                    <td> <input class = "bottom_right_square" type = 'submit' value = '<%= board.ttt_board[8] %>' name = 'player_choice'> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div id = "footer">
+        <ul id = "mmlink">
+            <li> <a href = "http://www.minedminds.org" target = "_blank"> <img src = "./img/mm.png" alt = "minedminds logo"> </a> </li>
+        © Mined Minds
+        </ul>
+    </div>
+
+</body>
+
+</html>
