@@ -60,7 +60,8 @@ end
 
 post '/pizza_delivery' do
     session[:del_choice] = params[:delivery]
-    if session[:del_choice] == "no_del"
+    if
+        session[:del_choice] == "no_del"
         redirect '/pizza_index'
     elsif 
         redirect '/pizza_address'
@@ -177,8 +178,6 @@ post '/player_selection' do
         session[:player_one] = Impossible.new('X')
     end
 
-    session[:active_player] = session[:player_one]
-
     if 
         session[:player2_selected] == 'human_choice2'
         session[:player_two] = Human.new('O')
@@ -197,11 +196,13 @@ post '/player_selection' do
         session[:player_two] = Impossible.new('O')
     end
 
+    session[:active_player] = session[:player_one]
+
     if
         session[:human1] == 'yes'
             redirect '/ttt_board_displayed_form'
     else
-        redirect '/make_move'
+        redirect '/computer_move'
     end
 end
 
@@ -209,8 +210,8 @@ get '/ttt_board_displayed_form' do
     erb :ttt_board_displayed, locals: {player_one: session[:player_one], player_two: session[:player_two], active_player: session[:active_player].marker, board: session[:board]}
 end
 
-get '/players_move' do
-    move = session[:active_player].get_move(session[:board.ttt_board])
+get '/computer_move' do
+    move = session[:active_player].get_move(session[:board].ttt_board)
     session[:board].update_position(move, session[:active_player].marker)
     
     redirect '/check_game_state'
@@ -230,14 +231,12 @@ post '/ttt_board_displayed_form' do
     end
 end
 
-
-
 get '/check_game_state' do
     if
         session[:board].winner?(session[:active_player].marker)
         message = "#{session[:active_player].marker} is the winner!"
 
-        erb :ttt_end_page, locals: {board: session[:board], message: move}
+        erb :ttt_end_page, locals: {board: session[:board], message: message}
 
     elsif
         session[:board].full_board?
@@ -257,6 +256,6 @@ get '/check_game_state' do
         session[:active_player] == session[:player_one] && session[:human1] == 'yes' || session[:active_player] == session[:player_two] && session[:human2] == 'yes'
         redirect '/ttt_board_displayed_form'
 
-    else redirect '/make_move'
+    else redirect '/computer_move'
     end
 end

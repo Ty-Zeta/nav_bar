@@ -1,0 +1,79 @@
+<! doctype HTML5>
+
+<html lang = "en">
+<head>
+    <meta charset = "utf - 8">
+
+    <title> Nav Bar Homework </title>
+    <meta name = "description" content = "Nav Bar Homework">
+    <meta name = "author" content = "Site Point">
+
+    <link rel = "stylesheet" href = "css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div id = "background">  
+    </div>
+
+    <div id = "NavBar">
+        <ul id = "socialsites">
+            <li> <a href = "http://www.facebook.com/ty.cook.14"> <img src = "./img/fb.png" alt = "facebook logo"> </a> </li>
+            <li> <a href = "http://www.twitter.com/Ty_Zeta"> <img src = "./img/tw.png" alt = "twitter logo"> </a> </li>
+            <li> <a href = "http://www.youtube.com"> <img src = "./img/yt.png" alt = "youtube logo"> </a> </li>
+        </ul>
+    </div>
+
+    <div id = "ddm">
+        <ul id = "info">
+            <li class = "links">
+                <a href="javascript:void(0)"
+                class = "dropbtn"> LINKS </a>
+                <div class = "links-content">
+                    <a href = /tic_tac_toe> Tic Tac Toe </a>
+                    <a href = /isbn> ISBN </a>
+                    <a href = /pizza_delivery>Pizza</a> 
+                </div>
+            </li>
+            <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>
+            <li id = "cc"> <a href = /user_change> COIN CHANGER </a> </li>
+        </ul>
+    </div>
+
+    <div id = "ttt_end_page_div">
+        <h1 class = 'title_3'> <%= message %> </h1>
+
+        <table id = "ttt_board_table">
+            <tr>
+                <td> <div class = "win_display"> <%= board.ttt_board[0] %> </div> </td>
+                <td class = "columns"> <div class = "win_display"> <%= board.ttt_board[1] %> </div> </td>
+                <td> <div class = "win_display"> <%= board.ttt_board[2] %> </div> </td>
+	        </tr>
+
+            <tr>
+                <td class = "rows"> <div class = "win_display"> <%= board.ttt_board[3] %> </div> </td>
+                <td class = "columns rows"> <div class = "win_display"> <%= board.ttt_board[4] %> </div> </td>
+                <td class = "rows"> <div class = "win_display"> <%= board.ttt_board[5] %> </div> </td>
+            </tr>
+
+            <tr>
+                <td> <div class = "win_display"> <%= board.ttt_board[6] %> </div> </td>
+                <td class = "columns"> <div class = "win_display"> <%= board.ttt_board[7] %> </div> </td>
+                <td> <div class = "win_display"> <%= board.ttt_board[8] %> </div> </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id = "footer">
+        <ul id = "mmlink">
+            <li> <a href = "http://www.minedminds.org" target = "_blank"> <img src = "./img/mm.png" alt = "minedminds logo"> </a> </li>
+        © Mined Minds
+        </ul>
+    </div>
+
+</body>
+
+</html>

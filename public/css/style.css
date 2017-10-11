@@ -333,6 +333,13 @@ body {
     height: 500px;
 }
 
+.win_display {
+    font-family: Tahoma, sans-serif;
+    text-align: center;
+    vertical-align: center;
+    font-size: 5em;
+}
+
 .tooltip {
     position: relative;
     display: inline-block;
