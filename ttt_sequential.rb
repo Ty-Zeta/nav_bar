@@ -6,6 +6,6 @@ class Sequential
     end
     
     def get_move(ttt_board)
-        ttt_board.index('')
+        ttt_board.index { |x| x.is_a?(Integer) }
     end
 end

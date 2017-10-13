@@ -9,7 +9,7 @@ class Random
         valid_position = []
 
         ttt_board.each_with_index do |value, index_position|
-            if value == ''
+            if value.is_a?(Integer)
                 valid_position << index_position
             end
         end

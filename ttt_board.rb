@@ -2,7 +2,7 @@ class Board
     attr_accessor :ttt_board
 
     def initialize
-        @ttt_board = Array.new(9, "")
+        @ttt_board = *(1..9)
     end
 
     def update_position(position, marker)
@@ -10,7 +10,8 @@ class Board
     end
 
     def valid_position?(position)
-        if ttt_board[position] == ''
+        if 
+            ttt_board[position] != 'X' && ttt_board[position] != 'O' && position.between?(0, 8)
             true
         else
             false
@@ -18,7 +19,8 @@ class Board
     end
 
     def valid_input?(input)
-        if input.match(/[XxOo]/)
+        if 
+            input.match(/[XxOo]/)
             true
         else
             false
@@ -26,7 +28,12 @@ class Board
     end
 
     def full_board?
-        ttt_board.count('') == 0
+        if 
+            ttt_board.all? { |x| x.is_a?(String) }
+            true
+        else
+            false
+        end
     end
 
     def winner?(marker)
