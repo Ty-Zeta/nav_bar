@@ -10,7 +10,7 @@ class Random
 
         ttt_board.each_with_index do |value, index_position|
             if value.is_a?(Integer)
-                valid_position << index_position
+                valid_position.push(index_position)
             end
         end
         valid_position.sample

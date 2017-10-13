@@ -333,6 +333,29 @@ body {
     height: 500px;
 }
 
+#ttt_end_page_div {
+    text-align: center;
+    background-color: #f1f1f1;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 100%;
+    top: 10%;
+    position: absolute;
+    color: black;
+    z-index: 500;
+    margin-top: 1.5%;
+}
+
+.title_ttt_end_page {
+    text-align: center;
+    font-family: Tahoma, sans-serif;
+    font-size: 2em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+}
+
 .win_display {
     font-family: Tahoma, sans-serif;
     text-align: center;

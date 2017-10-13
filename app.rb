@@ -165,6 +165,7 @@ post '/player_selection' do
         session[:player1_selected] == 'human_choice1'
         session[:player_one] = Human.new('X')
         session[:human1] = 'yes'
+    
     elsif
         session[:player1_selected] == 'sequential_choice1'
         session[:player_one] = Sequential.new('X')
