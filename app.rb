@@ -3,10 +3,7 @@ require_relative "change_coin.rb"
 require_relative "rando_names.rb"
 require_relative "isbn.rb"
 require_relative "ttt_board.rb"
-require_relative "ttt_human.rb"
-require_relative "ttt_random.rb"
-require_relative "ttt_sequential.rb"
-require_relative "ttt_impossible.rb"
+require_relative "player_class.rb"
 
 load './local_env.rb' if File.exist?('./local_env.rb')
 
@@ -163,16 +160,16 @@ post '/player_selection' do
 
     if 
         session[:player1_selected] == 'human_choice1'
-        session[:player_one] = Human.new('X')
+        session[:player_one] = Human_class.new('X')
         session[:human1] = 'yes'
     
     elsif
         session[:player1_selected] == 'sequential_choice1'
-        session[:player_one] = Sequential.new('X')
+        session[:player_one] = Sequential_class.new('X')
 
     elsif
         session[:player1_selected] == 'random_choice1'
-        session[:player_one] = Random.new('X')
+        session[:player_one] = Random_class.new('X')
 
     elsif
         session[:player1_selected] == 'impossible_choice1'
@@ -181,16 +178,16 @@ post '/player_selection' do
 
     if 
         session[:player2_selected] == 'human_choice2'
-        session[:player_two] = Human.new('O')
+        session[:player_two] = Human_class.new('O')
         session[:human2] = 'yes'
     
     elsif
         session[:player2_selected] == 'sequential_choice2'
-        session[:player_two] = Sequential.new('O')
+        session[:player_two] = Sequential_class.new('O')
 
     elsif
         session[:player2_selected] == 'random_choice2'
-        session[:player_two] = Random.new('O')
+        session[:player_two] = Random_class.new('O')
 
     elsif
         session[:player2_selected] == 'impossible_choice2'

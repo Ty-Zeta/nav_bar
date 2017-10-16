@@ -28,7 +28,7 @@ class Impossible
 
     def get_center(ttt_board)
         if 
-            ttt_board[4] == ''
+            ttt_board[4].is_a?(Integer)
             move = 4
         
         else
@@ -38,19 +38,19 @@ class Impossible
 
     def get_fork(ttt_board)
         if 
-            ttt_board[0] == ''
+            ttt_board[0].is_a?(Integer)
             move = 0
 
         elsif 
-            ttt_board[2] == ''
+            ttt_board[2].is_a?(Integer)
             move = 2
 
         elsif 
-            ttt_board[6] == ''
+            ttt_board[6].is_a?(Integer)
             move = 6
         
         elsif 
-            ttt_board[8] == ''
+            ttt_board[8].is_a?(Integer)
             move = 8
 
         else 
@@ -63,7 +63,9 @@ class Impossible
         empty = []
 
         sides.each do |position|
-            if ttt_board[position] == ''
+            
+            if
+                ttt_board[position].is_a?(Integer)
                 empty << position
             end
         end
@@ -108,7 +110,9 @@ class Impossible
         intersections = []
 
         fork_combonations.each_with_index do |forking_line, index_position|
-            if forking_line.count(player) == 1 && forking_line.count('') == 2
+            
+            if 
+                forking_line.count(player) == 1 && forking_line.count{  |empty_spot| empty_spot.is_a?(Integer) } == 2
                 index_position_array << index_position
             end
         end
@@ -120,7 +124,9 @@ class Impossible
         fork_spot = fork_spot.flatten.sort
 
         fork_spot.each do |fork_spot_value|
-            if ttt_board[fork_spot_value] == ''
+            
+            if 
+                ttt_board[fork_spot_value].is_a?(Integer)
                 intersections << fork_spot_value
             end
         end
@@ -131,11 +137,11 @@ class Impossible
         intersections = take_block_fork(ttt_board, opponent)
 
         if 
-            ttt_board == ['', '', opponent, '', marker, '', opponent, '', '']
+            ttt_board == [1, 2, opponent, 4, marker, 6, opponent, 8, 9]
             move = 3
 
         elsif 
-            ttt_board == [opponent, '', '', '', marker, '', '', '', opponent]
+            ttt_board == [opponent, 2, 3, 4, marker, 6, 7, 8, opponent]
             move = 3
 
         elsif 
@@ -176,8 +182,10 @@ class Impossible
         move = 80
 
         possible_winning_combos_on_board.each_with_index do |winning_combo_line, index_position_of_winning_array_set|
-            if winning_combo_line.count(player) == 2 && winning_combo_line.count('') == 1
-                winning_empty_space = winning_combo_line.index('')
+            
+            if 
+                winning_combo_line.count(player) == 2 && winning_combo_line.count{ |empty_spot| empty_spot..is_a?(Integer)} == 1
+                winning_empty_space = winning_combo_line.index{ |empty_spot| empty_spot.is_a?(Integer) }
                 move = possible_winning_combos[index_position_of_winning_array_set][winning_empty_space]
             else
                 move
