@@ -3,7 +3,8 @@ require_relative "change_coin.rb"
 require_relative "rando_names.rb"
 require_relative "isbn.rb"
 require_relative "ttt_board.rb"
-require_relative "player_class.rb"
+require_relative "ttt_player_class.rb"
+require_relative "ttt_impossible.rb"
 
 load './local_env.rb' if File.exist?('./local_env.rb')
 

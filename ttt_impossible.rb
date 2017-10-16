@@ -184,7 +184,7 @@ class Impossible
         possible_winning_combos_on_board.each_with_index do |winning_combo_line, index_position_of_winning_array_set|
             
             if 
-                winning_combo_line.count(player) == 2 && winning_combo_line.count{ |empty_spot| empty_spot..is_a?(Integer)} == 1
+                winning_combo_line.count(player) == 2 && winning_combo_line.count{ |empty_spot| empty_spot.is_a?(Integer)} == 1
                 winning_empty_space = winning_combo_line.index{ |empty_spot| empty_spot.is_a?(Integer) }
                 move = possible_winning_combos[index_position_of_winning_array_set][winning_empty_space]
             else
