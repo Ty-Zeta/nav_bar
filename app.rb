@@ -221,8 +221,6 @@ post '/ttt_board_displayed_form' do
     
     if 
         session[:board].valid_position?(move)
-        puts "position valid"
-        puts move
         session[:board].update_position(move, session[:active_player].marker)
 
         redirect '/check_game_state'
@@ -237,13 +235,13 @@ get '/check_game_state' do
     if
         session[:board].winner?(session[:active_player].marker)
         message = "#{session[:active_player].marker} is the winner!"
-        puts "WINNER"
+        
         erb :ttt_end_page, locals: {board: session[:board], message: message}
 
     elsif
         session[:board].full_board?
         message = "It's a tied game . . ."
-        puts "FULL"
+        
         erb :ttt_end_page, locals: {board: session[:board], message: message}
 
     else
