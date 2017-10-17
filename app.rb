@@ -226,7 +226,6 @@ post '/ttt_board_displayed_form' do
         redirect '/check_game_state'
 
     else
-        puts "position not valid"
         redirect '/ttt_board_displayed_form'
     end
 end
