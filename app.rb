@@ -244,7 +244,7 @@ get '/check_game_state' do
         erb :ttt_end_page, locals: {board: session[:board], message: message}
 
     else
-        if 
+        if
             session[:active_player] == session[:player_one]
             session[:active_player] = session[:player_two]
         
