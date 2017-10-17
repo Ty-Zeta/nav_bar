@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script type = "text/javascript">
-        function ttt_player_name1(player_type_choice){
+        function ttt_player_name1_box_generate(player_type_choice){
             if (player_type_choice == 'human_choice1')document.getElementById('player1_name_div').innerHTML = 'Enter Player One Name: <input type = "text" name = "human_choice1" />';
             
             else document.getElementById('player1_name_div').innerHTML = '';
@@ -23,7 +23,7 @@
     </script>
 
     <script type = "text/javascript">
-        function ttt_player_name2(player_type_choice){
+        function ttt_player_name2_box_generate(player_type_choice){
             if (player_type_choice == 'human_choice2')document.getElementById('player2_name_div').innerHTML = 'Enter Player Two Name: <input type = "text" name = "human_choice2" />';
             
             else document.getElementById('player2_name_div').innerHTML = '';
@@ -76,8 +76,8 @@
                         
                         <tr>
                             <td>
-                                <select name = "player1_selection" id = "player1_selection" onchange = "ttt_player_name1(this.options[selectedIndex].value)">
-                                    <option selected = "please_select1"> P1 styles
+                                <select required name = "player1_selection" id = "player1_selection" onchange = "ttt_player_name1_box_generate(this.options[selectedIndex].value)">
+                                    <option value = ""> P1 styles </option>
                                     <option value = "human_choice1"> Human </option>
                                     <option value = "sequential_choice1"> Sequential </option>
                                     <option value = "random_choice1"> Random </option>
@@ -86,8 +86,8 @@
                             </td>
 
                             <td>
-                                <select name = "player2_selection" id = "player2_selection" onchange = "ttt_player_name2(this.options[selectedIndex].value)">
-                                    <option selected = "please_select2"> P2 styles
+                                <select required name = "player2_selection" id = "player2_selection" onchange = "ttt_player_name2_box_generate(this.options[selectedIndex].value)">
+                                    <option value = ""> P2 styles </option>
                                     <option value = "human_choice2"> Human </option>
                                     <option value = "sequential_choice2"> Sequential </option>
                                     <option value = "random_choice2"> Random </option>
