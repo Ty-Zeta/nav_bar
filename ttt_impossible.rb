@@ -36,7 +36,7 @@ class Impossible
         end
     end
 
-    def get_fork(ttt_board)
+    def get_corner(ttt_board)
         if 
             ttt_board[0].is_a?(Integer)
             move = 0
@@ -134,7 +134,7 @@ class Impossible
     end
 
     def block_fork(ttt_board)
-        intersections = take_block_fork(ttt_board, opponent)
+        intersections = take_block_fork(ttt_board, @opponent)
 
         if 
             ttt_board == [1, 2, opponent, 4, marker, 6, opponent, 8, 9]
@@ -214,8 +214,8 @@ class Impossible
             move = get_center(ttt_board)
 
         elsif
-            get_fork(ttt_board) <= 8
-            move = get_fork(ttt_board)
+            get_corner(ttt_board) <= 8
+            move = get_corner(ttt_board)
 
         elsif
             empty_side(ttt_board) <= 8
