@@ -54,16 +54,16 @@
                     <td> Victor </td>
                 </tr>
 
-               <% ttt_results_database.each do |value| %>
+               <% scoreboard.each do |value| %>
                     <tr>
-                        <td> <%= value[player1_db_column] %> </td>
-                        <td> <%= value[player2_db_column] %> </td>
-                        <td> <%= value[time_column] %> </td>
-                        <td> <%= value[victor_column] %> </td>
+                        <td> <%= value['player1_db_column'] %> </td>
+                        <td> <%= value['player2_db_column'] %> </td>
+                        <td> <%= value['time_column'] %> </td>
+                        <td> <%= value['victor_column'] %> </td>
                     </tr>
                 <% end %>
             </table>
-            
+
         </form>
     </div>
 

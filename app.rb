@@ -205,7 +205,7 @@ post '/player_selection' do
     elsif
         session[:player2_selected] == 'sequential_choice2'
         session[:player_two] = Sequential_class.new('O')
-        session[:p2_name] = "Squential"
+        session[:p2_name] = 'Sequential'
 
     elsif
         session[:player2_selected] == 'random_choice2'
@@ -260,7 +260,7 @@ get '/check_game_state' do
         session[:winners_name] = session[:active_player].marker
         session[:time] = Date.new
 
-        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}'), '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time]}' ");
+        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}', '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time]}') ");
         
         erb :ttt_end_page, locals: {board: session[:board], message: message, winners_name: session[:winners_name], time: session[:time]}
 
@@ -268,9 +268,9 @@ get '/check_game_state' do
         session[:board].full_board?
         message = "It's a tied game . . ."
         session[:winners_name] = "Tied"
-        session[:time] = Date.new
+        session[:time] = Time.new
         
-        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}'), '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time]}' ");
+        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}', '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time]}') ");
 
         erb :ttt_end_page, locals: {board: session[:board], message: message, winners_name: session[:winners_name], time: session[:time]}
 
@@ -293,5 +293,11 @@ get '/check_game_state' do
 end
 
 post '/ttt_results_button' do
-    erb :ttt_scoreboard_page
+    redirect "/ttt_scoreboard_page"
+end
+
+get '/ttt_scoreboard_page' do
+    scoreboard = db.exec("Select * From ttt_results_database")
+
+    erb :ttt_scoreboard_page, locals: {scoreboard: scoreboard}
 end
