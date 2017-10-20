@@ -306,6 +306,20 @@ body {
     margin-top: 1.5%;
 }
 
+#ttt_scoreboard_div {
+    text-align: center;
+    background-color: #f1f1f1;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 100%;
+    top: 10%;
+    position: absolute;
+    color: black;
+    z-index: 500;
+    margin-top: 2%;
+}
+
 .board_square {
     border: none;
     width: 100%;

@@ -258,9 +258,9 @@ get '/check_game_state' do
         session[:board].winner?(session[:active_player].marker)
         message = "#{session[:active_player].marker} is the winner!"
         session[:winners_name] = session[:active_player].marker
-        session[:time] = Date.new
+        session[:time] = Time.new
 
-        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}', '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time]}') ");
+        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}', '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time].inspect}') ");
         
         erb :ttt_end_page, locals: {board: session[:board], message: message, winners_name: session[:winners_name], time: session[:time]}
 
@@ -270,7 +270,7 @@ get '/check_game_state' do
         session[:winners_name] = "Tied"
         session[:time] = Time.new
         
-        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}', '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time]}') ");
+        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}', '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time].inspect}') ");
 
         erb :ttt_end_page, locals: {board: session[:board], message: message, winners_name: session[:winners_name], time: session[:time]}
 
