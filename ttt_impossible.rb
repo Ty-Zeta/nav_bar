@@ -222,7 +222,10 @@ class Impossible
             move = empty_side(ttt_board)
 
         else
-            move = ttt_board.index('')
+            if 
+                ttt_board.index is_a?(Integer)
+                move = ttt_board.index
+            end
         
         end
         move

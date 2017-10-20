@@ -271,6 +271,10 @@ get '/check_game_state' do
     end
 end
 
+post '/ttt_results_button' do
+    erb :ttt_scoreboard_page
+end
+
 def push_to_ttt_bucket(p1_name, p2_name, winners_name)
     Aws::S3::Client.new(
     access_key_id: ENV['AWS_ACCESS_KEY_ID'],

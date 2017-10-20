@@ -43,31 +43,31 @@
         </ul>
     </div>
 
-    <div id = "ttt_end_page_div">
-        <h1 class = 'title_ttt_end_page'> <%= message %> </h1>
-
-        <table id = "ttt_board_table">
-            <tr>
-                <td> <div class = "win_display"> <%= board.ttt_board[0] %> </div> </td>
-                <td class = "columns"> <div class = "win_display"> <%= board.ttt_board[1] %> </div> </td>
-                <td> <div class = "win_display"> <%= board.ttt_board[2] %> </div> </td>
-	        </tr>
-
-            <tr>
-                <td class = "rows"> <div class = "win_display"> <%= board.ttt_board[3] %> </div> </td>
-                <td class = "columns rows"> <div class = "win_display"> <%= board.ttt_board[4] %> </div> </td>
-                <td class = "rows"> <div class = "win_display"> <%= board.ttt_board[5] %> </div> </td>
-            </tr>
-
-            <tr>
-                <td> <div class = "win_display"> <%= board.ttt_board[6] %> </div> </td>
-                <td class = "columns"> <div class = "win_display"> <%= board.ttt_board[7] %> </div> </td>
-                <td> <div class = "win_display"> <%= board.ttt_board[8] %> </div> </td>
-            </tr>
-        </table>
+   <div id = "ttt_scoreboard_div">
+        <form method = "post" action = "/ttt_scoreboard_display">
+            <p> The Tic Tac Toe Champions are </p>
+            
+            <% get_file = get_file.gsub("[", "").gsub(" ", "").gsub("]","") %>
+            <% get_file = get_file.delete(' ')  %>
+            <% get_file = get_file.split(",") %>
+	
+            <% get_file.each_with_index do |single, position| %>
+            <% if position % 4 == 0 %>
+                <br>
+	            <% else %>
+	        <% end %>
+	        
+            <%= "#{single.gsub('"','')}" %>
+	        <% end %>
+	        </h3>
+        </form>
     </div>
 
-   
+    <div id = "ttt_results_button_div">
+        <form method = "post" action = "ttt_results_button">
+            <p> <input type = "submit" value = "Click here to see the scoreboard"> </p>
+        </form>
+    </div>
 
     <div id = "footer">
         <ul id = "mmlink">
