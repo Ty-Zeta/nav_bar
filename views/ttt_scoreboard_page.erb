@@ -45,21 +45,25 @@
 
    <div id = "ttt_scoreboard_div">
         <form method = "post" action = "/ttt_scoreboard_display">
-            <p> The Tic Tac Toe Champions are </p>
             
-            <% get_file = get_file.gsub("[", "").gsub(" ", "").gsub("]","") %>
-            <% get_file = get_file.delete(' ')  %>
-            <% get_file = get_file.split(",") %>
-	
-            <% get_file.each_with_index do |single, position| %>
-            <% if position % 4 == 0 %>
-                <br>
-	            <% else %>
-	        <% end %>
-	        
-            <%= "#{single.gsub('"','')}" %>
-	        <% end %>
-	        </h3>
+            <table id="ttt_scoreboard_table">
+                <tr class = "header" >
+                    <td> X </td>
+                    <td> O </td>
+                    <td> Time </td>
+                    <td> Victor </td>
+                </tr>
+
+               <% ttt_results_database.each do |value| %>
+                    <tr>
+                        <td> <%= value[player1_db_column] %> </td>
+                        <td> <%= value[player2_db_column] %> </td>
+                        <td> <%= value[time_column] %> </td>
+                        <td> <%= value[victor_column] %> </td>
+                    </tr>
+                <% end %>
+            </table>
+            
         </form>
     </div>
 

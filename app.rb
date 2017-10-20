@@ -5,10 +5,25 @@ require_relative "isbn.rb"
 require_relative "ttt_board.rb"
 require_relative "ttt_player_class.rb"
 require_relative "ttt_impossible.rb"
+require 'rubygems'
+require 'aws-sdk'
+require 'csv'
+require 'pg'
+require 'bcrypt'
 
 load './local_env.rb' if File.exist?('./local_env.rb')
 
 enable :sessions
+
+db_params = {
+	host: ENV['host'],
+	port: ENV['port'],
+	dbname: ENV['dbname'],
+	user: ENV['user'],
+	password: ENV['password']
+}
+
+db = PG::Connection.new(db_params)
 
 get '/' do
 erb :index
@@ -168,17 +183,17 @@ post '/player_selection' do
     elsif
         session[:player1_selected] == 'sequential_choice1'
         session[:player_one] = Sequential_class.new('X')
-        session[:p1_name] = "Sequential AI"
+        session[:p1_name] = "Sequential"
 
     elsif
         session[:player1_selected] == 'random_choice1'
         session[:player_one] = Random_class.new('X')
-        session[:p1_name] = "Random AI"
+        session[:p1_name] = "Random"
 
     elsif
         session[:player1_selected] == 'impossible_choice1'
         session[:player_one] = Impossible.new('X')
-        session[:p1_name] = "Impossible AI"
+        session[:p1_name] = "Impossible"
     end
 
     if 
@@ -190,17 +205,17 @@ post '/player_selection' do
     elsif
         session[:player2_selected] == 'sequential_choice2'
         session[:player_two] = Sequential_class.new('O')
-        session[:p2_name] = "Squential AI"
+        session[:p2_name] = "Squential"
 
     elsif
         session[:player2_selected] == 'random_choice2'
         session[:player_two] = Random_class.new('O')
-        session[:p2_name] = "Random AI"
+        session[:p2_name] = "Random"
 
     elsif
         session[:player2_selected] == 'impossible_choice2'
         session[:player_two] = Impossible.new('O')
-        session[:p2_name] = "Impossible AI"
+        session[:p2_name] = "Impossible"
     end
 
     session[:active_player] = session[:player_one]
@@ -243,15 +258,21 @@ get '/check_game_state' do
         session[:board].winner?(session[:active_player].marker)
         message = "#{session[:active_player].marker} is the winner!"
         session[:winners_name] = session[:active_player].marker
+        session[:time] = Date.new
+
+        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}'), '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time]}' ");
         
-        erb :ttt_end_page, locals: {board: session[:board], message: message, winners_name: session[:winners_name]}
+        erb :ttt_end_page, locals: {board: session[:board], message: message, winners_name: session[:winners_name], time: session[:time]}
 
     elsif
         session[:board].full_board?
         message = "It's a tied game . . ."
         session[:winners_name] = "Tied"
+        session[:time] = Date.new
         
-        erb :ttt_end_page, locals: {board: session[:board], message: message}
+        db.exec("INSERT INTO ttt_results_database(player1_db_column, player2_db_column, victor_column, time_column) VALUES('#{session[:p1_name]}'), '#{session[:p2_name]}', '#{session[:winners_name]}', '#{session[:time]}' ");
+
+        erb :ttt_end_page, locals: {board: session[:board], message: message, winners_name: session[:winners_name], time: session[:time]}
 
     else
         if
@@ -273,54 +294,4 @@ end
 
 post '/ttt_results_button' do
     erb :ttt_scoreboard_page
-end
-
-def push_to_ttt_bucket(p1_name, p2_name, winners_name)
-    Aws::S3::Client.new(
-    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-    region: ENV['AWS_REGION']
-    )
-    
-    file = 'ttt_winner_bucket_info.csv'
-    write_file = File.open(file, "a")
-    # a is "append", which means add on to the end of the file
-    
-    write_file << user_given_isbn + ", " + result_message + "\n"
-    # \n means to add a new line, otherwise it would just keep on going
-
-    write_file.close
-   
-    bucket = 'ttt-bucket'
-
-    s3 = Aws::S3::Resource.new(region: 'us-east-2')
-
-    obj = s3.bucket(bucket).object(file)
-    
-    File.open(file, 'rb') do |file|
-        obj.put(body: file)
-    end
-end
-
-def get_file()
-    Aws::S3::Client.new(
-        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-        region: ENV['AWS_REGION']
-    )
-    
-    s3 = Aws::S3::Client.new
-    csv_file_from_bucket = s3.get_object(bucket: 'ttt-bucket', key: 'new.csv')
-    csv_file_read = csv_file_from_bucket.body.read
-
-    split_csv = csv_file_read.split
-    list = []
-    
-    split_csv.each do |item|
-        item.gsub(/"/, '')
-        list << item
-    end
-    
-    list = list.join(", ")
-    list
 end
