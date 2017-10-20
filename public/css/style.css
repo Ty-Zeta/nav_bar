@@ -363,8 +363,21 @@ body {
     font-size: 5em;
 }
 
+#ttt_results_button_div {
+    text-align: center;
+    background-color: #f1f1f1;
+    left: 5%;
+    right: 5%;
+    /* width: 90%; */
+    /* height: 100%; */
+    bottom: 130;
+    position: absolute;
+    color: black;
+    z-index: 501;
+    margin-top: 1.5%;
+}
 
-/* #ttt_results_button_div {
+#ttt_scoreboard_div {
     text-align: center;
     background-color: #f1f1f1;
     left: 5%;
@@ -376,22 +389,7 @@ body {
     color: black;
     z-index: 500;
     margin-top: 1.5%;
-} */
-
-
-/* #ttt_scoreboard_div {
-    text-align: center;
-    background-color: #f1f1f1;
-    left: 5%;
-    right: 5%;
-    width: 90%;
-    height: 100%;
-    top: 10%;
-    position: absolute;
-    color: black;
-    z-index: 500;
-    margin-top: 1.5%;
-} */
+}
 
 .tooltip {
     position: relative;
