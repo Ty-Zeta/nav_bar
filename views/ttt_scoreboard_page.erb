@@ -46,22 +46,22 @@
    <div id = "ttt_scoreboard_div">
         <form method = "post" action = "/ttt_scoreboard_display">
             
-            <table id="ttt_scoreboard_table">
-                <tr class = "header" >
-                    <td> X </td>
-                    <td> O </td>
-                    <td> Time </td>
-                    <td> Victor </td>
-                </tr>
-
-               <% scoreboard.each do |value| %>
-                    <tr>
-                        <td> <%= value['player1_db_column'] %> </td>
-                        <td> <%= value['player2_db_column'] %> </td>
-                        <td> <%= value['time_column'] %> </td>
-                        <td> <%= value['victor_column'] %> </td>
+            <table align = "center" id = "ttt_scoreboard_table">
+                    <tr class = "header" >
+                        <th style = "width: 40%"> X </th>
+                        <th style = "width: 40%"> O </th>
+                        <th style = "width: 50%"> Time </th>
+                        <th style = "width: 40%"> Victor </th>
                     </tr>
-                <% end %>
+
+                    <% scoreboard.each do |value| %>
+                        <tr>
+                            <td> <%= value['player1_db_column'] %> </td>
+                            <td> <%= value['player2_db_column'] %> </td>
+                            <td> <%= value['time_column'] %> </td>
+                            <td> <%= value['victor_column'] %> </td>
+                        </tr>
+                    <% end %>
             </table>
 
         </form>
