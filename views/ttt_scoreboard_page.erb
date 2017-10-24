@@ -43,15 +43,19 @@
         </ul>
     </div>
 
+    <div id = "ttt_restart_button_div">
+        <input type = "button" onclick = "location.href='/tic_tac_toe';" value = "Click here to play another game">
+    </div>
+
    <div id = "ttt_scoreboard_div">
         <form method = "post" action = "/ttt_scoreboard_display">
             
             <table align = "center" id = "ttt_scoreboard_table">
                     <tr class = "header" >
-                        <th style = "width: 40%"> X </th>
-                        <th style = "width: 40%"> O </th>
+                        <th style = "width: 20%"> X </th>
+                        <th style = "width: 20%"> O </th>
                         <th style = "width: 50%"> Time </th>
-                        <th style = "width: 40%"> Victor </th>
+                        <th style = "width: 20%"> Victor </th>
                     </tr>
 
                     <% scoreboard.each do |value| %>
@@ -63,7 +67,6 @@
                         </tr>
                     <% end %>
             </table>
-
         </form>
     </div>
 

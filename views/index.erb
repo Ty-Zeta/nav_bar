@@ -10,8 +10,19 @@
 
     <link rel = "stylesheet" href = "css/style.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+
+    <script>
+    function myFunction() {
+        var x = document.getElementById("ddm");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+    </script>
 
 </head>
 
@@ -27,15 +38,16 @@
         </ul>
     </div>
 
-    <div id = "ddm">
+    <div class = "topnav" id = "ddm">
         <ul id = "info">
             <li class = "links">
-                <a href="javascript:void(0)"
+                <a href = "javascript:void(0)"
                 class = "dropbtn"> LINKS </a>
                 <div class = "links-content">
                     <a href = /tic_tac_toe> Tic Tac Toe </a>
                     <a href = /isbn> ISBN </a>
                     <a href = /pizza_delivery>Pizza</a> 
+                    <a href = "javascript:void(0);" class = "icon" onclick = "myFunction()">&#9776; </a>
                 </div>
             </li>
             <li id = "gl"> <a href = /user_names> RANDOM PAIRS  </a> </li>

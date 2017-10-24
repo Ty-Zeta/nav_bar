@@ -64,6 +64,36 @@ body {
     padding-top: 0px;
 }
 
+.topnav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
 #gl {
     padding-right: 5px;
 }
@@ -402,10 +432,24 @@ body {
     right: 5%;
     width: 90%;
     height: 100%;
-    top: 8%;
+    top: 10%;
     position: absolute;
     color: black;
     z-index: 500;
+    margin-top: 1.5%;
+}
+
+#ttt_restart_button_div {
+    text-align: center;
+    background-color: #f1f1f1;
+    left: 5%;
+    right: 5%;
+    /* width: 90%; */
+    /* height: 100%; */
+    top: 8%;
+    position: absolute;
+    color: black;
+    z-index: 501;
     margin-top: 1.5%;
 }
 

@@ -301,3 +301,8 @@ get '/ttt_scoreboard_page' do
 
     erb :ttt_scoreboard_page, locals: {scoreboard: scoreboard}
 end
+
+get '/tic_tac_toe' do
+    
+    redirect "/player_selection"
+end
